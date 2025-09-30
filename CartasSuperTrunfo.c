@@ -28,6 +28,8 @@ int main() {
   int population_city_a;
   float area_a, pib_city_a;
   int number_points_touristics_a;
+  float density_population_a;
+  float pib_per_capita_a;
   //------------ End data card A ------------
 
   char state_b[2];
@@ -36,6 +38,8 @@ int main() {
   int population_city_b;
   float area_b, pib_city_b;
   int number_points_touristics_b;
+  float density_population_b;
+  float pib_per_capita_b;
 
   //------------ End data card B ------------
 
@@ -116,7 +120,18 @@ int main() {
   scanf("%d", &number_points_touristics_b);
   printf("\n");
 
-  printf("-------------- END DATA CARD [A] ---------------\n");
+  printf("-------------- END DATA CARD [B] ---------------\n");
+
+  //------------------ Calculate Population density and PIB per capita ------------------
+  //------------------ CARD [A] ------------------
+  density_population_a = population_city_a / area_a;
+  pib_per_capita_a = pib_city_a / population_city_a;
+
+  //------------------ CARD [B] ------------------
+  density_population_b = population_city_b / area_b;
+  pib_per_capita_b = pib_city_b / population_city_b;  
+
+  //-------------------------------------------------------------------------------------
 
   // Área para exibição dos dados da cidade
   printf("----------- Dados da carta A -----------\n");
@@ -127,6 +142,8 @@ int main() {
   printf("Area city A: %.2f\n", area_a);
   printf("PIB city A: %.2f\n", pib_city_a);
   printf("Number points touristics A: %d\n", number_points_touristics_a);
+  printf("The density population A is: %.2f hab/km²\n", density_population_a);
+  printf("The PIB per capita of population A: %.2f Reais\n", pib_per_capita_a);
 
   printf("----------- Dados da carta B -----------\n");
   printf("State: %s\n", state_b);
@@ -136,6 +153,11 @@ int main() {
   printf("Area city B: %.2f\n", area_b);
   printf("PIB city B: %.2f\n", pib_city_b);
   printf("Number points touristics B: %d\n", number_points_touristics_b);
+  printf("The density population B is: %.2f hab/km²\n", density_population_b);
+  printf("The PIB per capita of population B: %.2f Reais\n", pib_per_capita_b);
+
+  //---------------------------------------------------------------------------------------------------
+
 
 return 0;
 } 
