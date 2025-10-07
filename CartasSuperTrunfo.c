@@ -30,7 +30,7 @@ int main() {
   int number_points_touristics_a;
   float density_population_a;
   float pib_per_capita_a;
-  //------------ End data card A ------------
+  //------------ End data head card A ------------
 
   char state_b[2];
   char card_code_b[5];
@@ -41,7 +41,7 @@ int main() {
   float density_population_b;
   float pib_per_capita_b;
 
-  //------------ End data card B ------------
+  //------------ End data head card B ------------
 
   // Área para entrada de dados. Section of input data user
   printf("-------------- DATA OF CARD [A] --------------\n");
@@ -55,10 +55,12 @@ int main() {
   printf("Enter with a card code: \n");
   scanf(" %s", card_code_a);
 
+  getchar(); // Cleaning of \n in buffer of variable 
+
   printf("Help data input: writing name of city, not inserting number\n");
   printf("Suporte ao usuário: digite o nome da cidade, não inserir número\n");
   printf("Enter with a name city: \n");
-  scanf(" %s", name_city_a);
+  fgets(name_city_a, sizeof(name_city_a), stdin);
 
   printf("Help data input: input with number of amount population city A. number type integer\n");
   printf("Suporte ao usuário: digite o número da população da cidade A. Tipo número: inteiro\n");
@@ -94,10 +96,12 @@ int main() {
   printf("Enter with a card code: \n");
   scanf(" %s", card_code_b);
 
+  getchar(); // Cleaning of \n in buffer of variable 
+
   printf("Help data input: writing name of city, not inserting number\n");
   printf("Suporte ao usuário: digite o nome da cidade, não inserir número\n");
   printf("Enter with a name city: \n");
-  scanf(" %s", name_city_b);
+  fgets(name_city_b, sizeof(name_city_b), stdin);
 
   printf("Help data input: input with number of amount population city B. number type integer\n");
   printf("Suporte ao usuário: digite o número da população da cidade B. Tipo número: inteiro\n");
