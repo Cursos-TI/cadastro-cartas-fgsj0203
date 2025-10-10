@@ -47,6 +47,17 @@ int main() {
   unsigned int counter_power_card_b = 0;
 
   //------------ End data head card B ------------
+  //Input of option user for comparation attribute of cards
+  int option_comparation;
+  //-------------------------------------------------------
+  int option_comparation_one;
+  int option_comparation_two;
+  //-------------------------------------------------------
+  // Variables assistents for implementation (Level - Master)
+  unsigned long int sum_card_a;
+  unsigned long int sum_card_b;
+
+  //-------------------------------------------------------
 
   // Área para entrada de dados. Section of input data user
   printf("-------------- DATA OF CARD [A] --------------\n");
@@ -168,90 +179,514 @@ int main() {
   printf("The PIB per capita of population B: %.2f Reais\n", pib_per_capita_b);
 
   //---------------------------------------------------------------------------------------------------
+
+  //Input data of user for option comparation
+  printf("User, input a number for operation: \n");
+  printf("1 - Population / Populacao\n");
+  printf("2 - Area City / Area cidade\n");
+  printf("3 - PIB City / PIB Cidade\n");
+  printf("4 - Number Points touristics / Numero de pontos turisticos\n");
+  printf("5 - Density population / Densidade populacional\n");
+  scanf("%d", &option_comparation);
+  
+  //--------------- Structure of option using loop switch-case --------------- 
+  switch (option_comparation)
+  {
+  case 1:
+  if (population_city_a > population_city_b)
+  {
+    printf("%s VS %s \n", name_city_a, name_city_b);
+    printf("Attribute selected for comparation is population\n");
+    printf("%ld x %ld\n", population_city_a, population_city_b);
+    printf("The card 1 is win (1)\n");
+    printf("A carta 1 venceu (1)\n");
+  }
+  else
+  {
+    printf("%s VS %s", name_city_a, name_city_b);
+    printf("Attribute select for comparation is population\n");
+    printf("%ld x %ld\n", population_city_a, population_city_b);
+    printf("The card 2 is win (0)\n");
+    printf("A carta 2 venceu (0)\n");
+  }
+  break;
+  case 2:
+  if (area_a > area_b)
+  {
+    printf("%s VS %s \n", name_city_a, name_city_b);
+    printf("The attribute selected for comparation is Area of City\n");
+    printf("%.2f X %.2f \n", area_a, area_b);
+    printf("The card 1 win (1)\n");
+    printf("A carta 1 venceu (1)\n");
+  }
+  else
+  {
+    printf("%s VS %s \n", name_city_a, name_city_b);
+    printf("The attribute selected for comparation is Area of City\n");
+    printf("%.2f X %.2f \n", area_a, area_b);
+    printf("The card 2 win (0)\n");
+    printf("A carta 2 venceu (0)\n");
+  }
+  break;
+
+  case 3:
+  if (pib_city_a > pib_city_b)
+  {
+    printf("%s VS %s \n", name_city_a, name_city_b);
+    printf("The attribute selected for comparation is PIB of city\n");
+    printf("%.2f X %.2f \n", pib_city_a, pib_city_b);
+    printf("The card 1 win (1)\n");
+    printf("A carta 1 venceu (1)\n");
+  }
+  else
+  {
+    printf("%s VS %s \n", name_city_a, name_city_b);
+    printf("The attribute selected for comparation is PIB of city\n");
+    printf("%.2f X %.2f \n", pib_city_a, pib_city_b);
+    printf("The card 2 win (0)\n");
+    printf("A carta 2 venceu (0)\n");
+  }
+  break;
+  case 4:
+  if (number_points_touristics_a > number_points_touristics_b)
+  {
+    printf("%s VS %s", name_city_a, name_city_b);
+    printf("The attribute selected for comparation is Number points touristics");
+    printf("%d X %d \n", number_points_touristics_a, number_points_touristics_b);
+    printf("The card 1 win (1)\n");
+    printf("A carta 1 venceu (1)");
+  }
+  else
+  {
+    printf("%s VS %s ", name_city_a, name_city_b);
+    printf("The attribute selected for comparation is Number points touristics\n");
+    printf("%d X %d", number_points_touristics_a, number_points_touristics_b);
+    printf("The card 2 win (0)\n");
+    printf("A carta 2 venceu (0)\n");
+  }
+  case 5:
+  if (density_population_a > density_population_b)
+  {
+    printf("%s VS %s ", name_city_a, name_city_b);
+    printf("The attribute selected for comparation if density population\n");
+    printf("%.2f X %.2f\n", density_population_a, density_population_b);
+    printf("The card 2 win (0)\n");
+    printf("A carta 2 venceu (0)\n");
+  }
+  else
+  {
+    printf("%s VS %s ", name_city_a, name_city_b);
+    printf("The attribute selected for comparation if density population \n");
+    printf("%.2f X %.2f", density_population_a, density_population_b);
+    printf("The card 1 win (1)\n");
+    printf("A carta 1 venceu (1)\n");    
+  }
+  break;
+  
+  default:
+    printf("option invalid, try again!\n");
+    printf("Opcao invalida, tente novamente");
+  }
+
+  /*
+  Implementation of user menu interactive (level Master)
+  Implementação do menu interativo com usuário (Nível Mestre) 
+  */
+ printf("****** Menu of comparation power cards *******\n");
+ printf("Menu for selected attributes for comparation\n");
+ printf("1 - population of city\n");
+ printf("2 - Area of city\n");
+ printf("3 - PIB of city\n");
+ printf("4 - Points touristics of city\n");
+ printf("5 - Density population\n");
+ printf("6 - PIB per capita\n");
+ scanf("%d", &option_comparation_one);
+ scanf("%d", &option_comparation_two);
+
+ if (option_comparation_one == 1 && option_comparation_two == 2)
+ {
+  printf("%s VS %s\n", name_city_a, name_city_b);
+  printf("The attributes for comparate is Population and area of city\n");
+  printf("%ld - %ld\n", population_city_a, population_city_b);
+  printf("%.2f - %.2f\n", area_a, area_b);
+  printf("Card A = %ld\n", sum_card_a = population_city_a + area_a);
+  printf("Card B = %ld", sum_card_b = population_city_b + area_b);
+  if (sum_card_a > sum_card_b)
+  {
+    printf("Card A win (1)");
+    printf("Carta A venceu (1)");
+  }
+  else
+  {
+    printf("Card B win (0)");
+    printf("Carta B venceu (0)");
+  }
+}
+
+if (option_comparation_one == 1 && option_comparation_two == 3)
+ {
+  printf("%s VS %s\n", name_city_a, name_city_b);
+  printf("The attributes for comparate is Population and PIB of city\n");
+  printf("%ld - %ld\n", population_city_a, population_city_b);
+  printf("%.2f - %.2f\n", pib_city_a, pib_city_b);
+  printf("Card A = %ld\n", sum_card_a = population_city_a + pib_city_a);
+  printf("Card B = %ld", sum_card_b = population_city_b + pib_city_b);
+  if (sum_card_a > sum_card_b)
+  {
+    printf("Card A win (1)");
+    printf("Carta A venceu (1)");
+  }
+  else
+  {
+    printf("Card B win (0)");
+    printf("Carta B venceu (0)");
+  }
+}
+if (option_comparation_one == 1 && option_comparation_two == 4)
+ {
+  printf("%s VS %s\n", name_city_a, name_city_b);
+  printf("The attributes for comparate is Population and points touristics of city\n");
+  printf("%ld - %ld\n", population_city_a, population_city_b);
+  printf("%d - %d\n", number_points_touristics_a, number_points_touristics_b);
+  printf("Card A = %ld\n", sum_card_a = population_city_a + number_points_touristics_a);
+  printf("Card B = %ld", sum_card_b = population_city_b + number_points_touristics_b);
+  if (sum_card_a > sum_card_b)
+  {
+    printf("Card A win (1)");
+    printf("Carta A venceu (1)");
+  }
+  else
+  {
+    printf("Card B win (0)");
+    printf("Carta B venceu (0)");
+  }
+}
+
+if (option_comparation_one == 1 && option_comparation_two == 5)
+ {
+  printf("%s VS %s\n", name_city_a, name_city_b);
+  printf("The attributes for comparate is Population and Density of population\n");
+  printf("%ld - %ld\n", population_city_a, population_city_b);
+  printf("%.2f - %.2f\n", area_a, area_b);
+  printf("Card A = %ld\n", sum_card_a = population_city_a + density_population_a);
+  printf("Card B = %ld", sum_card_b = population_city_b + density_population_b);
+  if (sum_card_a > sum_card_b)
+  {
+    printf("Card A win (1)");
+    printf("Carta A venceu (1)");
+  }
+  else
+  {
+    printf("Card B win (0)");
+    printf("Carta B venceu (0)");
+  }
+}
+
+if (option_comparation_one == 1 && option_comparation_two == 6)
+ {
+  printf("%s VS %s\n", name_city_a, name_city_b);
+  printf("The attributes for comparate is Population and PIB per capita\n");
+  printf("%ld - %ld\n", population_city_a, population_city_b);
+  printf("%.2f - %.2f\n", pib_per_capita_a, pib_per_capita_b);
+  printf("Card A = %ld\n", sum_card_a = population_city_a + pib_per_capita_a);
+  printf("Card B = %ld", sum_card_b = population_city_b + pib_per_capita_b);
+  if (sum_card_a > sum_card_b)
+  {
+    printf("Card A win (1)");
+    printf("Carta A venceu (1)");
+  }
+  else
+  {
+    printf("Card B win (0)");
+    printf("Carta B venceu (0)");
+  }
+}
+
+if (option_comparation_one == 2 && option_comparation_two == 3)
+ {
+  printf("%s VS %s\n", name_city_a, name_city_b);
+  printf("The attributes for comparate is area of city and PIB of city\n");
+  printf("%.2f - %.2f\n", area_a, area_b);
+  printf("%.2f - %.2f\n", pib_city_a, pib_city_b);
+  printf("Card A = %ld\n", sum_card_a = area_a + pib_city_a);
+  printf("Card B = %ld", sum_card_b = area_b + pib_city_b);
+  if (sum_card_a > sum_card_b)
+  {
+    printf("Card A win (1)");
+    printf("Carta A venceu (1)");
+  }
+  else
+  {
+    printf("Card B win (0)");
+    printf("Carta B venceu (0)");
+  }
+}
+
+if (option_comparation_one == 2 && option_comparation_two == 4)
+ {
+  printf("%s VS %s\n", name_city_a, name_city_b);
+  printf("The attributes for comparate is area of city and Number points touristics\n");
+  printf("%.2f - %.2f\n", area_a, area_b);
+  printf("%d - %d\n", number_points_touristics_a, number_points_touristics_b);
+  printf("Card A = %ld\n", sum_card_a = area_a + number_points_touristics_a);
+  printf("Card B = %ld", sum_card_b = area_b + number_points_touristics_b);
+  if (sum_card_a > sum_card_b)
+  {
+    printf("Card A win (1)");
+    printf("Carta A venceu (1)");
+  }
+  else
+  {
+    printf("Card B win (0)");
+    printf("Carta B venceu (0)");
+  }
+}
+
+if (option_comparation_one == 2 && option_comparation_two == 5)
+ {
+  printf("%s VS %s\n", name_city_a, name_city_b);
+  printf("The attributes for comparate is area of city and Density population\n");
+  printf("%.2f - %.2f\n", area_a, area_b);
+  printf("%.2f - %.2f\n", density_population_a, density_population_b);
+  printf("Card A = %ld\n", sum_card_a = area_a + density_population_a);
+  printf("Card B = %ld", sum_card_b = area_b + density_population_b);
+  if (sum_card_a > sum_card_b)
+  {
+    printf("Card A win (1)");
+    printf("Carta A venceu (1)");
+  }
+  else
+  {
+    printf("Card B win (0)");
+    printf("Carta B venceu (0)");
+  }
+}
+
+if (option_comparation_one == 2 && option_comparation_two == 6)
+ {
+  printf("%s VS %s\n", name_city_a, name_city_b);
+  printf("The attributes for comparate is area of city and PIB per capita\n");
+  printf("%.2f - %.2f\n", area_a, area_b);
+  printf("%.2f - %.2f\n", pib_per_capita_a, pib_per_capita_b);
+  printf("Card A = %ld\n", sum_card_a = area_a + pib_per_capita_a);
+  printf("Card B = %ld", sum_card_b = area_b + pib_per_capita_b);
+  if (sum_card_a > sum_card_b)
+  {
+    printf("Card A win (1)");
+    printf("Carta A venceu (1)");
+  }
+  else
+  {
+    printf("Card B win (0)");
+    printf("Carta B venceu (0)");
+  }
+}
+
+if (option_comparation_one == 3 && option_comparation_two == 4)
+ {
+  printf("%s VS %s\n", name_city_a, name_city_b);
+  printf("The attributes for comparate is PIB of city and Number Points touristics\n");
+  printf("%.2f - %.2f\n", pib_city_a, pib_city_b);
+  printf("%d - %d\n", number_points_touristics_a, number_points_touristics_b);
+  printf("Card A = %ld\n", sum_card_a = pib_city_a + number_points_touristics_a);
+  printf("Card B = %ld", sum_card_b = pib_city_b + number_points_touristics_b);
+  if (sum_card_a > sum_card_b)
+  {
+    printf("Card A win (1)");
+    printf("Carta A venceu (1)");
+  }
+  else
+  {
+    printf("Card B win (0)");
+    printf("Carta B venceu (0)");
+  }
+}
+
+if (option_comparation_one == 3 && option_comparation_two == 5)
+ {
+  printf("%s VS %s\n", name_city_a, name_city_b);
+  printf("The attributes for comparate is PIB of city and density population\n");
+  printf("%.2f - %.2f\n", pib_city_a, pib_city_b);
+  printf("%.2f - %.2f\n", density_population_a, density_population_b);
+  printf("Card A = %ld\n", sum_card_a = pib_city_a + density_population_a);
+  printf("Card B = %ld", sum_card_b = pib_city_b + density_population_b);
+  if (sum_card_a > sum_card_b)
+  {
+    printf("Card A win (1)");
+    printf("Carta A venceu (1)");
+  }
+  else
+  {
+    printf("Card B win (0)");
+    printf("Carta B venceu (0)");
+  }
+}
+
+if (option_comparation_one == 3 && option_comparation_two == 6)
+ {
+  printf("%s VS %s\n", name_city_a, name_city_b);
+  printf("The attributes for comparate is PIB of city and PIB per capita\n");
+  printf("%.2f - %.2f\n", pib_city_a, pib_city_b);
+  printf("%.2f - %.2f\n", pib_per_capita_a, pib_per_capita_b);
+  printf("Card A = %ld\n", sum_card_a = pib_city_a + pib_per_capita_a);
+  printf("Card B = %ld", sum_card_b = pib_city_a + pib_per_capita_b);
+  if (sum_card_a > sum_card_b)
+  {
+    printf("Card A win (1)");
+    printf("Carta A venceu (1)");
+  }
+  else
+  {
+    printf("Card B win (0)");
+    printf("Carta B venceu (0)");
+  }
+}
+
+if (option_comparation_one == 4 && option_comparation_two == 5)
+ {
+  printf("%s VS %s\n", name_city_a, name_city_b);
+  printf("The attributes for comparate is number point touristics and Density population\n");
+  printf("%d - %d\n", number_points_touristics_a, number_points_touristics_b);
+  printf("%.2f - %.2f\n", density_population_a, density_population_b);
+  printf("Card A = %ld\n", sum_card_a = number_points_touristics_a + density_population_a);
+  printf("Card B = %ld", sum_card_b = number_points_touristics_a + density_population_b);
+  if (sum_card_a > sum_card_b)
+  {
+    printf("Card A win (1)");
+    printf("Carta A venceu (1)");
+  }
+  else
+  {
+    printf("Card B win (0)");
+    printf("Carta B venceu (0)");
+  }
+}
+
+if (option_comparation_one == 4 && option_comparation_two == 6)
+ {
+  printf("%s VS %s\n", name_city_a, name_city_b);
+  printf("The attributes for comparate is number point touristics and PIB per capita\n");
+  printf("%d - %d\n", number_points_touristics_a, number_points_touristics_b);
+  printf("%.2f - %.2f\n", pib_per_capita_a, pib_per_capita_b);
+  printf("Card A = %ld\n", sum_card_a = number_points_touristics_a + pib_per_capita_a);
+  printf("Card B = %ld", sum_card_b = number_points_touristics_a + pib_per_capita_b);
+  if (sum_card_a > sum_card_b)
+  {
+    printf("Card A win (1)");
+    printf("Carta A venceu (1)");
+  }
+  else
+  {
+    printf("Card B win (0)");
+    printf("Carta B venceu (0)");
+  }
+}
+
+if (option_comparation_one == 5 && option_comparation_two == 6)
+ {
+  printf("%s VS %s\n", name_city_a, name_city_b);
+  printf("The attributes for comparate is density population and PIB per capita\n");
+  printf("%d - %d\n", density_population_a, density_population_b);
+  printf("%.2f - %.2f\n", pib_per_capita_a, pib_per_capita_b);
+  printf("Card A = %ld\n", sum_card_a = density_population_a + pib_per_capita_a);
+  printf("Card B = %ld", sum_card_b = density_population_b + pib_per_capita_b);
+  if (sum_card_a > sum_card_b)
+  {
+    printf("Card A win (1)");
+    printf("Carta A venceu (1)");
+  }
+  else
+  {
+    printf("Card B win (0)");
+    printf("Carta B venceu (0)");
+  }
+}
+
+  // Section of code using loop if-else (for comparate values)
   // Comparating values of two cards
-    printf("Comparating of two cards\n");
-    if (population_city_a > population_city_b)
-    {
-      printf("Population: \n");
-      counter_power_card_a++;
-      printf("Card 1 win (1)\n");
-      printf("Carta 1 venceu (1)\n");
-    }
-    else
-    {
-      printf("Population: \n");
-      counter_power_card_b++;
-      printf("Card 2 win (0)\n");
-      printf("Carta 2 venceu (0)\n");
-    }
-    if (area_a > area_b)
-    {
-      printf("Area: \n");
-      counter_power_card_a++;
-      printf("Card 1 win (1)\n");
-      printf("Carta 1 venceu (1)\n");
-    }
-    else
-    {
-      printf("Area: \n");
-      counter_power_card_b++;
-      printf("Card 2 win (0)\n");
-      printf("Carta 2 venceu (0)\n");
-    }
-    if (pib_city_a > pib_city_b)
-    {
-      printf("PIB: \n");
-      counter_power_card_a++;
-      printf("Card 1 win (1)\n");
-      printf("Carta 1 venceu (1)\n");
-    }
-    else
-    {
-      printf("PIB: \n");
-      counter_power_card_b++;
-      printf("Card 2 win (0)\n");
-      printf("Carta 2 venceu (0)\n");
-    }
-    if (number_points_touristics_a > number_points_touristics_b)
-    {
-      printf("Point Touristics: \n");
-      counter_power_card_a++;
-      printf("Card 1 win (1)\n");
-      printf("Carta 1 venceu (1)\n");
-    }
-    else
-    {
-      printf("Point Touristics: \n");
-      counter_power_card_b++;
-      printf("Card 2 win (0)\n");
-      printf("Carta 2 venceu (0)\n");
-    }
-    if (density_population_a > density_population_b)
-    {
-      printf("Density Population: \n");
-      counter_power_card_b++;
-      printf("Card 2 win (0)\n");
-      printf("Carta 2 venceu (0)\n");
-    }
-    else
-    {
-      printf("Density Population: \n");
-      counter_power_card_a++;
-      printf("Card 1 win (1)\n");
-      printf("Carta 1 venceu (1)\n");
-    }
-    if (power_card_a > power_card_b)
-    {
-      printf("Super power: \n");
-      printf("Card 1 win (1)\n");
-      printf("Carta 1 venceu (1)\n");
-    }
-    else
-    {
-      printf("Super power: \n");
-      printf("Card 2 win (0)\n");
-      printf("Carta 2 venceu (0)\n");
-    }
+    // printf("Comparating of two cards\n");
+    // if (population_city_a > population_city_b)
+    // {
+    //   printf("Population: \n");
+    //   counter_power_card_a++;
+    //   printf("Card 1 win (1)\n");
+    //   printf("Carta 1 venceu (1)\n");
+    // }
+    // else
+    // {
+    //   printf("Population: \n");
+    //   counter_power_card_b++;
+    //   printf("Card 2 win (0)\n");
+    //   printf("Carta 2 venceu (0)\n");
+    // }
+    // if (area_a > area_b)
+    // {
+    //   printf("Area: \n");
+    //   counter_power_card_a++;
+    //   printf("Card 1 win (1)\n");
+    //   printf("Carta 1 venceu (1)\n");
+    // }
+    // else
+    // {
+    //   printf("Area: \n");
+    //   counter_power_card_b++;
+    //   printf("Card 2 win (0)\n");
+    //   printf("Carta 2 venceu (0)\n");
+    // }
+    // if (pib_city_a > pib_city_b)
+    // {
+    //   printf("PIB: \n");
+    //   counter_power_card_a++;
+    //   printf("Card 1 win (1)\n");
+    //   printf("Carta 1 venceu (1)\n");
+    // }
+    // else
+    // {
+    //   printf("PIB: \n");
+    //   counter_power_card_b++;
+    //   printf("Card 2 win (0)\n");
+    //   printf("Carta 2 venceu (0)\n");
+    // }
+    // if (number_points_touristics_a > number_points_touristics_b)
+    // {
+    //   printf("Point Touristics: \n");
+    //   counter_power_card_a++;
+    //   printf("Card 1 win (1)\n");
+    //   printf("Carta 1 venceu (1)\n");
+    // }
+    // else
+    // {
+    //   printf("Point Touristics: \n");
+    //   counter_power_card_b++;
+    //   printf("Card 2 win (0)\n");
+    //   printf("Carta 2 venceu (0)\n");
+    // }
+    // if (density_population_a > density_population_b)
+    // {
+    //   printf("Density Population: \n");
+    //   counter_power_card_b++;
+    //   printf("Card 2 win (0)\n");
+    //   printf("Carta 2 venceu (0)\n");
+    // }
+    // else
+    // {
+    //   printf("Density Population: \n");
+    //   counter_power_card_a++;
+    //   printf("Card 1 win (1)\n");
+    //   printf("Carta 1 venceu (1)\n");
+    // }
+    // if (power_card_a > power_card_b)
+    // {
+    //   printf("Super power: \n");
+    //   printf("Card 1 win (1)\n");
+    //   printf("Carta 1 venceu (1)\n");
+    // }
+    // else
+    // {
+    //   printf("Super power: \n");
+    //   printf("Card 2 win (0)\n");
+    //   printf("Carta 2 venceu (0)\n");
+    // }
 
 
 return 0;
